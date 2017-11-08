@@ -1,0 +1,19 @@
+{
+    "fish_red": {
+        "animates": {
+            "run": {
+                "pre": "fish_red_run",
+                "start": 0,
+                "end": 3,
+                "speed": 1
+            },
+            "dead": {
+                "pre": "fish_red_dead",
+                "start": 0,
+                "end": 3,
+                "speed": 1
+            }
+        },
+        "bezierid": 1000 
+    }
+}
