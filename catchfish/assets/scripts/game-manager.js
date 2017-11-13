@@ -23,14 +23,14 @@ cc.Class({
         };
     },
     update: function(){
-        if (this.fishConfig){
-            if (this.addFishTime > 1){
-                this.addFishTime = 0;
-                this.addFish(this.fishConfig[Object.keys(this.fishConfig)[0]]);
-            }else{
-                this.addFishTime ++;
-            }
-        }
+        // if (this.fishConfig){
+        //     if (this.addFishTime > 1){
+        //         this.addFishTime = 0;
+        //         this.addFish(this.fishConfig[Object.keys(this.fishConfig)[0]]);
+        //     }else{
+        //         this.addFishTime ++;
+        //     }
+        // }
        
     },
     addFish: function(config){
