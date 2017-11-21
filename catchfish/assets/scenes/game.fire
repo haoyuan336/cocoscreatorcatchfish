@@ -307,7 +307,10 @@
     "node": {
       "__id__": 6
     },
-    "_enabled": true
+    "_enabled": true,
+    "spriteAtlas": {
+      "__uuid__": "745d770c-5c11-4414-8947-a4fe1428a84c"
+    }
   },
   {
     "__type__": "cc.Sprite",
