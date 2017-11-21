@@ -1,4 +1,5 @@
 import global from './global'
+import defines from './defines'
 const AddFishState = {
     Invalide: -1,
     RandomFish: 1,
@@ -20,11 +21,37 @@ cc.Class({
         this.addRandomFishTime = 0;
         this.stateAddFish = 0;
         this.addFishStateTime = 0;
-        cc.loader.loadRes("./configs/fish-config.json", (err, result)=>{
-            this.fishConfig = result;
-            this.setAddFishState(AddFishState.RandomFish);
 
-        });
+        let configCount = 0;
+        const loadConfig = (name, resPath)=>{
+            console.log('load res = ' + name + "res = " + resPath);
+            cc.loader.loadRes(resPath, (err, result)=>{
+                if (err){
+                    cc.log("load err " + resPath +" = " + err);
+                }
+                this[name] = result;
+                configCount ++;
+                if (configCount === defines.configMap.length){
+                    cc.log('系统加载完毕');
+                    //系统加载完毕，开始出鱼
+                    this.setAddFishState(AddFishState.RandomFish);
+                }
+            });
+        };
+
+
+
+
+        for (let i in defines.configMap){
+            loadConfig(i, defines.configMap[i]);
+        }
+
+        // cc.loader.loadRes("./configs/fish-config.json", (err, result)=>{
+        //     this.fishConfig = result;
+        //     this.setAddFishState(AddFishState.RandomFish);
+        //
+        // });
+
 
 
 
