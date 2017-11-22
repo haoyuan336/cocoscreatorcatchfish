@@ -21,7 +21,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_id": "81a902de-ae19-4899-969f-948be537fa03",
+    "_id": "da044d0d-597e-476c-a687-fc2ed22edb5b",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -63,11 +63,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 8
+        "__id__": 6
       }
     ],
     "_prefab": null,
-    "_id": "2egLGT1wlLx6uKcvT0S+jO",
+    "_id": "81WW7yePhLpYzJ8+YYRjw1",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -105,7 +105,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "game-world",
+    "_name": "game-controller",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -117,16 +117,9 @@
     ],
     "_tag": -1,
     "_active": true,
-    "_components": [
-      {
-        "__id__": 6
-      },
-      {
-        "__id__": 7
-      }
-    ],
+    "_components": [],
     "_prefab": null,
-    "_id": "42+bI0XZBHpo8c06bst0m2",
+    "_id": "a4OosthxxCV6XVY7kJcPdv",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -164,7 +157,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "game_bg",
+    "_name": "editor",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -178,7 +171,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "68sp8e+FVGQ6nOSru3QR6r",
+    "_id": "f4KBb6q+9Bg4OoDJAjdGyy",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -195,8 +188,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1024,
-      "height": 768
+      "width": 960,
+      "height": 640
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -215,51 +208,16 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "8114bQHNy9FQZnE1kP8whTU",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 4
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "a9d54eca-5b9d-4925-a648-b3a17778ab72"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "817f8YnCM9MNqVde+PXnBsM",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 3
-    },
-    "_enabled": true,
-    "fishPrefab": {
-      "__uuid__": "73c6bc58-ab2b-41fc-8cd9-fff939d711d6"
+    "pointPrefab": {
+      "__uuid__": "e47989fd-2100-4761-bc18-c80a6c403270"
     }
-  },
-  {
-    "__type__": "31ca4JGNFZE0Z9pM5vPOx8C",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 3
-    },
-    "_enabled": true
   },
   {
     "__type__": "cc.Canvas",

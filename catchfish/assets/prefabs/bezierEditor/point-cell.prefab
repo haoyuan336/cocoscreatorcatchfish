@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "fish",
+    "_name": "point-cell",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -22,13 +22,10 @@
       },
       {
         "__id__": 3
-      },
-      {
-        "__id__": 4
       }
     ],
     "_prefab": {
-      "__id__": 5
+      "__id__": 4
     },
     "_id": "",
     "_opacity": 255,
@@ -47,8 +44,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 65,
-      "height": 47
+      "width": 10,
+      "height": 10
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -67,6 +64,15 @@
     "groupIndex": 0
   },
   {
+    "__type__": "1e543VJ9s9PlalSNBIGaxf4",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true
+  },
+  {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
@@ -74,7 +80,9 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_spriteFrame": null,
+    "_spriteFrame": {
+      "__uuid__": "9980e28b-580d-4320-a5c2-a884abe5fe4c"
+    },
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -91,38 +99,14 @@
     "_atlas": null
   },
   {
-    "__type__": "cc.Animation",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_defaultClip": null,
-    "_clips": [],
-    "playOnLoad": false
-  },
-  {
-    "__type__": "343bdHcjtNL9Z3sdk+gt6iu",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "spriteAtlas": {
-      "__uuid__": "745d770c-5c11-4414-8947-a4fe1428a84c"
-    }
-  },
-  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "73c6bc58-ab2b-41fc-8cd9-fff939d711d6"
+      "__uuid__": "e47989fd-2100-4761-bc18-c80a6c403270"
     },
-    "fileId": "42FxTbE9FFe7a5RM8S1QBo",
+    "fileId": "c14rKg9yNBXqNJcZGuM2m2",
     "sync": false
   }
 ]

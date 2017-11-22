@@ -16,7 +16,7 @@ cc.Class({
 
     },
     addFishNode: function (data) {
-        cc.log('add fish node = ' + JSON.stringify(data));
+        // cc.log('add fish node = ' + JSON.stringify(data));
         let fishNode = cc.instantiate(this.fishPrefab);
         fishNode.parent = this.node;
         fishNode.getComponent('fish').initWithData(data);
