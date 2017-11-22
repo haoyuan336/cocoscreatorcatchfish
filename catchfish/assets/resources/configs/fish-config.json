@@ -13,6 +13,26 @@
                 "end": 3,
                 "speed": 10
             }
-        }
+        },
+        "width": 100,
+        "height": 100
+    },
+    "fish_bigred": {
+        "animates": {
+            "run": {
+                "pre": "fish_bigred_run",
+                "start": 0,
+                "end": 3,
+                "speed": 4
+            },
+            "dead": {
+                "pre": "fish_bigred_dead",
+                "start": 0,
+                "end": 3,
+                "speed": 4
+            }
+        },
+        "width": 100,
+        "height": 100
     }
 }

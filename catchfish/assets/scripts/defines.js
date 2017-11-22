@@ -3,8 +3,8 @@
  */
 const defines = {};
 defines.configMap = {
-  'fishBezierConfig': 'config/fish-bezier-config.json',
-  'fishConfig': 'config/fish-config.json',
-  'fishGroupConfig': 'config/fish-group-config.json'
+  'fishBezierConfig': 'configs/fish-bezier-config.json',
+  'fishConfig': 'configs/fish-config.json',
+  'fishGroupConfig': 'configs/fish-group-config.json'
 };
 export default defines;

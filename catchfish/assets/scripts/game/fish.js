@@ -1,4 +1,7 @@
-import global from './global'
+import global from '../global'
+const FishState = {
+
+};
 cc.Class({
     extends: cc.Component,
 
@@ -15,6 +18,6 @@ cc.Class({
 
     },
     initWithData: function(config){
-
+        //首先取出动画
     }
 });

@@ -63,7 +63,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 12
+        "__id__": 8
       }
     ],
     "_prefab": null,
@@ -84,8 +84,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 1334,
+      "height": 720
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -93,8 +93,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 480,
-      "y": 320
+      "x": 667,
+      "y": 360
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -113,16 +113,16 @@
     "_children": [
       {
         "__id__": 4
-      },
-      {
-        "__id__": 6
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 11
+        "__id__": 6
+      },
+      {
+        "__id__": 7
       }
     ],
     "_prefab": null,
@@ -241,129 +241,6 @@
     "_atlas": null
   },
   {
-    "__type__": "cc.Node",
-    "_name": "fish",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 3
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 7
-      },
-      {
-        "__id__": 8
-      },
-      {
-        "__id__": 9
-      }
-    ],
-    "_prefab": {
-      "__id__": 10
-    },
-    "_id": "f0jg3KoVJFqLimZOT9sdgP",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 37,
-      "height": 43
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "343bdHcjtNL9Z3sdk+gt6iu",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 6
-    },
-    "_enabled": true,
-    "spriteAtlas": {
-      "__uuid__": "745d770c-5c11-4414-8947-a4fe1428a84c"
-    }
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 6
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "c641da46-7c41-409a-a3cf-2b7f39a1a4e2"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": {
-      "__uuid__": "745d770c-5c11-4414-8947-a4fe1428a84c"
-    }
-  },
-  {
-    "__type__": "cc.Animation",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 6
-    },
-    "_enabled": true,
-    "_defaultClip": null,
-    "_clips": [],
-    "playOnLoad": false
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 6
-    },
-    "asset": {
-      "__uuid__": "73c6bc58-ab2b-41fc-8cd9-fff939d711d6"
-    },
-    "fileId": "42FxTbE9FFe7a5RM8S1QBo",
-    "sync": false
-  },
-  {
     "__type__": "817f8YnCM9MNqVde+PXnBsM",
     "_name": "",
     "_objFlags": 0,
@@ -373,10 +250,18 @@
     "_enabled": true,
     "fishPrefab": {
       "__uuid__": "73c6bc58-ab2b-41fc-8cd9-fff939d711d6"
-    },
-    "atlasFrames": {
-      "__uuid__": "745d770c-5c11-4414-8947-a4fe1428a84c"
     }
+  },
+  {
+    "__type__": "31ca4JGNFZE0Z9pM5vPOx8C",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 3
+    },
+    "_enabled": true,
+    "fishPrefab": null,
+    "atlasFrames": null
   },
   {
     "__type__": "cc.Canvas",
@@ -388,8 +273,8 @@
     "_enabled": true,
     "_designResolution": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 1334,
+      "height": 720
     },
     "_fitWidth": false,
     "_fitHeight": true
