@@ -64,6 +64,9 @@ cc.Class({
             }
             this.bezierConfig = result;
             this.initScrollView(result);
+            let id = Object.keys(result)[0];
+            this.showBezier(id);
+
         });
 
     },
@@ -106,7 +109,8 @@ cc.Class({
                 console.log("保存");
                 if (cc.sys.isBrowser){
                     console.log("浏览器");
-                    var textToWrite = JSON.stringify(["1","2"]);
+                    this.saveBezier();
+                    var textToWrite = JSON.stringify(this.bezierConfig);
                     var textFileAsBlob = new Blob([textToWrite], {type:'application/json'});
                     var fileNameToSaveAs = 'bezier-config.json';
                     var downloadLink = document.createElement("a");
@@ -131,15 +135,37 @@ cc.Class({
                     }
                 break;
             case 'save':
-
                 this.saveBezier();
-
-
-
+                break;
+            case 'new':
+                //加一条新的贝塞尔曲线
+                this.newBezier();
                 break;
             default:
                 break;
         }
+    },
+    newBezier: function () {
+        let str = this.currentBezierId;
+        console.log('str = ' + str);
+        //取出第11个位置开始的字符
+        let num = Object.keys(this.bezierConfig).length;
+        let index = 0;
+        for (let i in this.bezierConfig){
+            let n = parseInt(i.substring(10, i.length));
+            if (n != index){
+                num = index;
+            }
+            index ++;
+        }
+        console.log('num = ' + num);
+        //取出来之后
+        let newBezierId = str.substring(0, 10) + num;
+        this.bezierConfig[newBezierId] = [];
+        console.log('new bezier id = ' + newBezierId);
+        // this.addScrollViewCell(newBezierId);
+        this.showBezier(newBezierId);
+
     },
     saveBezier: function () {
         let config = [];
@@ -151,10 +177,11 @@ cc.Class({
         }
         this.bezierConfig[this.currentBezierId] = config;
     },
-    showBezier: function (event) {
-        let bezierId = event.target.id;
+    showBezier: function (id) {
+        let bezierId = id;
         this.currentBezierId = bezierId;
         let posList = this.bezierConfig[bezierId];
+        console.log('pos list = ' + posList.length);
         for (let i = 0 ; i < this.controlPointList.length ; i ++){
             this.controlPointList[i].destroy();
         }
@@ -176,7 +203,10 @@ cc.Class({
         node.position = cc.p(0, - this.scrollViewContent.children.length * 40);
         node.getChildByName('Label').getComponent(cc.Label).string = id;
         node.id = id;
-        node.on('click', this.showBezier.bind(this));
+        node.on('click', this.cellClick.bind(this));
     },
+    cellClick: function (event) {
+        this.showBezier(event.target.id);
+    }
 
 });
