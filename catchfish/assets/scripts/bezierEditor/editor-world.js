@@ -1,5 +1,6 @@
 import Bezier from './../utility/math/bezier'
 import defines from './../defines'
+import global from './../global'
 cc.Class({
     extends: cc.Component,
 
@@ -68,6 +69,8 @@ cc.Class({
             this.showBezier(id);
 
         });
+
+        global.event.on('choose_bezier', this.showBezier.bind(this));
 
     },
     addPoint: function (pos) {
@@ -205,12 +208,10 @@ cc.Class({
         let node = cc.instantiate(this.scrollViewCellPrefab);
         this.scrollViewContent.addChild(node);
         node.position = cc.p(0, - this.scrollViewContent.children.length * 40);
-        node.getChildByName('Label').getComponent(cc.Label).string = id;
-        node.id = id;
-        node.on('click', this.cellClick.bind(this));
-    },
-    cellClick: function (event) {
-        this.showBezier(event.target.id);
+        node.getComponent('scroll-view-cell').init({bezierId: id});
+        // node.id = id;
+        // node.on('click', this.cellClick.bind(this));
     }
+    // ,
 
 });
