@@ -163,7 +163,7 @@ cc.Class({
         let newBezierId = str.substring(0, 10) + num;
         this.bezierConfig[newBezierId] = [];
         console.log('new bezier id = ' + newBezierId);
-        // this.addScrollViewCell(newBezierId);
+        this.addScrollViewCell(newBezierId);
         this.showBezier(newBezierId);
 
     },
@@ -184,6 +184,10 @@ cc.Class({
         console.log('pos list = ' + posList.length);
         for (let i = 0 ; i < this.controlPointList.length ; i ++){
             this.controlPointList[i].destroy();
+        }
+        for (let i = 0 ; i < this.linePointList.length ; i ++){
+            this.node.removeChild(this.linePointList[i]);
+            //线的节点也删掉
         }
         this.controlPointList = [];
         for (let i = 0 ; i < posList.length ; i ++){
