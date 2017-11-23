@@ -217,6 +217,9 @@
     "_enabled": true,
     "pointPrefab": {
       "__uuid__": "e47989fd-2100-4761-bc18-c80a6c403270"
+    },
+    "controlPointPrefab": {
+      "__uuid__": "950745b0-1823-46a0-8f6e-97ebd022eb0d"
     }
   },
   {
