@@ -1,4 +1,5 @@
 import Bezier from './../utility/math/bezier'
+import defines from './../defines'
 cc.Class({
     extends: cc.Component,
 
@@ -10,6 +11,18 @@ cc.Class({
         controlPointPrefab: {
             default: null,
             type: cc.Prefab
+        },
+        scrollView: {
+            default: null,
+            type: cc.ScrollView
+        },
+        scrollViewContent: {
+            default: null,
+            type: cc.Node
+        },
+        scrollViewCellPrefab: {
+            default: null,
+            type: cc.Prefab
         }
     },
 
@@ -19,6 +32,7 @@ cc.Class({
         this.pointPool = [];
         this.controlPointList = [];
         this.linePointList = [];
+        this.bezierConfig = undefined;
         let touchPoint = undefined;
         this.node.on(cc.Node.EventType.TOUCH_START, (event)=>{
             console.log("touch start");
@@ -29,7 +43,6 @@ cc.Class({
                     touchPoint = point;
                 }
             }
-
         });
         this.node.on(cc.Node.EventType.TOUCH_MOVE, (event)=>{
             if (touchPoint){
@@ -43,10 +56,19 @@ cc.Class({
             }else {
                 touchPoint = undefined;
             }
+        });
+        //取出贝塞尔曲线的配置
+        cc.loader.loadRes(defines.configMap.bezierConfig, (err, result)=>{
+            if (err){
+                console.log("load bezier config err = " + err);
+            }
+            this.bezierConfig = result;
+            this.initScrollView(result);
+        });
 
-        })
     },
     addPoint: function (pos) {
+        console.log('pos = ' + JSON.stringify(pos));
         let point = cc.instantiate(this.controlPointPrefab);
         point.parent = this.node.parent;
         point.position = pos;
@@ -77,7 +99,84 @@ cc.Class({
 
             }
         }
+    },
+    buttonClick: function (event, coustomData) {
+        switch (coustomData){
+            case 'build':
+                console.log("保存");
+                if (cc.sys.isBrowser){
+                    console.log("浏览器");
+                    var textToWrite = JSON.stringify(["1","2"]);
+                    var textFileAsBlob = new Blob([textToWrite], {type:'application/json'});
+                    var fileNameToSaveAs = 'bezier-config.json';
+                    var downloadLink = document.createElement("a");
+                    downloadLink.download = fileNameToSaveAs;
+                    downloadLink.innerHTML = "Download File";
+                    if (window.webkitURL != null)
+                    {
+                        // Chrome allows the link to be clicked
+                        // without actually adding it to the DOM.
+                        downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+                    }
+                    else
+                    {
+                        // Firefox requires the link to be added to the DOM
+                        // before it can be clicked.
+                        downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+                        downloadLink.onclick = destroyClickedElement;
+                        downloadLink.style.display = "none";
+                        document.body.appendChild(downloadLink);
+                    }
+                    downloadLink.click();
+                    }
+                break;
+            case 'save':
 
-        
-    }
+                this.saveBezier();
+
+
+
+                break;
+            default:
+                break;
+        }
+    },
+    saveBezier: function () {
+        let config = [];
+        for (let i = 0 ; i < this.controlPointList.length ; i ++){
+            config.push({
+                x: this.controlPointList[i].position.x,
+                y: this.controlPointList[i].position.y
+            })
+        }
+        this.bezierConfig[this.currentBezierId] = config;
+    },
+    showBezier: function (event) {
+        let bezierId = event.target.id;
+        this.currentBezierId = bezierId;
+        let posList = this.bezierConfig[bezierId];
+        for (let i = 0 ; i < this.controlPointList.length ; i ++){
+            this.controlPointList[i].destroy();
+        }
+        this.controlPointList = [];
+        for (let i = 0 ; i < posList.length ; i ++){
+            this.addPoint(posList[i]);
+        }
+
+    },
+    initScrollView: function (data) {
+        for (let i in data){
+            this.addScrollViewCell(i);
+        }
+    },
+    addScrollViewCell: function (id) {
+        console.log(' i = ' + id);
+        let node = cc.instantiate(this.scrollViewCellPrefab);
+        this.scrollViewContent.addChild(node);
+        node.position = cc.p(0, - this.scrollViewContent.children.length * 40);
+        node.getChildByName('Label').getComponent(cc.Label).string = id;
+        node.id = id;
+        node.on('click', this.showBezier.bind(this));
+    },
+
 });
