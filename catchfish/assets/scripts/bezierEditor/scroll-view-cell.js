@@ -27,6 +27,7 @@ cc.Class({
     onLoad: function () {
 
         global.event.on('choose_bezier',this.chooseBezier.bind(this));
+        this.checkButton.interactable = false;
     },
 
     chooseBezier: function (bezierId) {
@@ -42,6 +43,9 @@ cc.Class({
     },
     onButtonClick: function (event ,customData) {
         global.event.fire('choose_bezier', this.bezierId);
+    },
+    getCellId: function () {
+        return this.bezierId;
     }
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

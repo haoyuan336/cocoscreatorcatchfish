@@ -144,23 +144,33 @@ cc.Class({
                 //加一条新的贝塞尔曲线
                 this.newBezier();
                 break;
+            case 'delete':
+                //删掉节点
+                this.removeControllerPoint();
+                //配置删掉一条数据
+                this.removeScrollViewCell(this.currentBezierId);
+                let config = {};
+                for (let i in this.bezierConfig){
+                    if (i !== this.currentBezierId){
+                        config[i] = this.bezierConfig[i];
+                    }
+                }
+                this.bezierConfig = config;
+                this.currentBezierId = undefined;
+                console.log('bezier config = ' + JSON.stringify(this.bezierConfig));
+
+                break;
             default:
                 break;
         }
     },
     newBezier: function () {
-        let str = this.currentBezierId;
+        let str = 'bezier_id_1';
         console.log('str = ' + str);
         //取出第11个位置开始的字符
-        let num = Object.keys(this.bezierConfig).length;
-        let index = 0;
-        for (let i in this.bezierConfig){
-            let n = parseInt(i.substring(10, i.length));
-            if (n != index){
-                num = index;
-            }
-            index ++;
-        }
+        // let num = Object.keys(this.bezierConfig).length;
+
+        let num = this.getDeletion(this.bezierConfig);
         console.log('num = ' + num);
         //取出来之后
         let newBezierId = str.substring(0, 10) + num;
@@ -170,7 +180,30 @@ cc.Class({
         this.showBezier(newBezierId);
 
     },
+
+    getDeletion: function (map) {
+        let keys = Object.keys(map);
+        keys.sort(function (a, b) {
+            let n1 = parseInt(a.substring(10, a.length));
+            let n2 = parseInt(b.substring(10, b.length));
+            if (n1 > n2){
+                return true
+            }
+            return false
+        });
+
+        for (let i = 0 ;i < keys.length ; i ++){
+            let value = parseInt(keys[i].substring(10, keys[i].length));
+            if (i !== value){
+                return i;
+            }
+        }
+        return keys.length;
+    },
     saveBezier: function () {
+        if (this.currentBezierId === undefined){
+            return
+        }
         let config = [];
         for (let i = 0 ; i < this.controlPointList.length ; i ++){
             config.push({
@@ -181,18 +214,12 @@ cc.Class({
         this.bezierConfig[this.currentBezierId] = config;
     },
     showBezier: function (id) {
+        console.log('show bezier id = ' + id);
         let bezierId = id;
         this.currentBezierId = bezierId;
         let posList = this.bezierConfig[bezierId];
         console.log('pos list = ' + posList.length);
-        for (let i = 0 ; i < this.controlPointList.length ; i ++){
-            this.controlPointList[i].destroy();
-        }
-        for (let i = 0 ; i < this.linePointList.length ; i ++){
-            this.node.removeChild(this.linePointList[i]);
-            //线的节点也删掉
-        }
-        this.controlPointList = [];
+        this.removeControllerPoint();
         for (let i = 0 ; i < posList.length ; i ++){
             this.addPoint(posList[i]);
         }
@@ -211,7 +238,33 @@ cc.Class({
         node.getComponent('scroll-view-cell').init({bezierId: id});
         // node.id = id;
         // node.on('click', this.cellClick.bind(this));
-    }
+    },
+    removeScrollViewCell: function (id) {
+        //删掉一个cell
+        for (let i = 0 ; i < this.scrollViewContent.children.length ; i ++){
+            let cell = this.scrollViewContent.children[i];
+            if (cell.getComponent('scroll-view-cell').getCellId() === id){
+                //id 相等
+                this.scrollViewContent.removeChild(cell);
+            }
+        }
+
+
+        for (let i = 0 ; i < this.scrollViewContent.children.length ; i ++){
+            let cell = this.scrollViewContent.children[i];
+            cell.position = cc.p(0, - (i + 1) * 40)
+        }
+    },
     // ,
+    removeControllerPoint:function () {
+        for (let i = 0 ; i < this.controlPointList.length ; i ++){
+            this.controlPointList[i].destroy();
+        }
+        for (let i = 0 ; i < this.linePointList.length ; i ++){
+            this.node.removeChild(this.linePointList[i]);
+            //线的节点也删掉
+        }
+        this.controlPointList = [];
+    }
 
 });

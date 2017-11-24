@@ -31,11 +31,11 @@
         "__id__": 15
       },
       {
-        "__id__": 16
+        "__id__": 17
       }
     ],
     "_prefab": {
-      "__id__": 17
+      "__id__": 18
     },
     "_id": "",
     "_opacity": 255,
@@ -527,7 +527,11 @@
     "hoverSprite": {
       "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
     },
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 16
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -553,6 +557,15 @@
     "_N$target": {
       "__id__": 1
     }
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "scroll-view-cell",
+    "handler": "onButtonClick",
+    "customEventData": ""
   },
   {
     "__type__": "e7098I3X/VPr6Tis2m4gzS9",
