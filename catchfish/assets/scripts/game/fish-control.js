@@ -81,7 +81,7 @@ cc.Class({
         cc.log('fish type = ' + fishType);
         //随机一条贝塞尔曲
         //取出贝塞尔曲线的配置
-        let bezierConfig = this[defines.configMap.fishBezierConfig];
+        let bezierConfig = this[defines.configMap.bezierConfig];
         console.log("bezier config = " + JSON.stringify(bezierConfig));
         let bezier = bezierConfig[Object.keys(bezierConfig)[Math.floor(Math.random() * Object.keys(bezierConfig).length)]];
         cc.log('bezier id = ' + JSON.stringify(bezier));
