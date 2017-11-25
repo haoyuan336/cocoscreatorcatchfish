@@ -1,6 +1,4 @@
-import global from './global'
-import defines from './defines'
-
+const global = require('./global');
 cc.Class({
     extends: cc.Component,
     properties: {

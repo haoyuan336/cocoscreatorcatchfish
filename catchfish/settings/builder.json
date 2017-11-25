@@ -1,0 +1,28 @@
+{
+  "appKey": "",
+  "appSecret": "",
+  "excludeScenes": [
+    "81a902de-ae19-4899-969f-948be537fa03"
+  ],
+  "includeAnySDK": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.catchfish",
+  "privateKey": "",
+  "renderMode": "0",
+  "startScene": "da044d0d-597e-476c-a687-fc2ed22edb5b",
+  "title": "catchfish",
+  "webOrientation": "auto"
+}
