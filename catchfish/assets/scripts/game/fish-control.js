@@ -1,5 +1,4 @@
-import global from './global'
-import defines from './defines'
+const defines = require("./../defines");
 const AddFishState = {
     Invalide: -1,
     RandomFish: 1,

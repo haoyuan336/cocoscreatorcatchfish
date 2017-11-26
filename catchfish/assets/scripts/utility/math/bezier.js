@@ -89,4 +89,4 @@ const Bezier = function (controllerPoints, count, all_time) {
   return that
 };
 
-export default Bezier;
+module.exports = Bezier;

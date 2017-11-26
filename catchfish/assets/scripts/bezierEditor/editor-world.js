@@ -1,6 +1,9 @@
-import Bezier from './../utility/math/bezier'
-import defines from './../defines'
-import global from './../global'
+// import Bezier from './../utility/math/bezier'
+// import defines from './../defines'
+// import global from './../global'
+const Bezier  = require('./../utility/math/bezier');
+const defines = require('./../defines');
+const global = require('./../global');
 cc.Class({
     extends: cc.Component,
 

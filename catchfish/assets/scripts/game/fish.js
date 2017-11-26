@@ -1,4 +1,3 @@
-import global from '../global'
 import Bezier from './../utility/math/bezier'
 const FishState = {
     Invalid: -1,

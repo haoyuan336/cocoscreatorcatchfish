@@ -7,4 +7,4 @@ defines.configMap = {
   'fishConfig': 'configs/fish-config.json',
   'fishGroupConfig': 'configs/fish-group-config.json'
 };
-export default defines;
+module.exports = defines;
