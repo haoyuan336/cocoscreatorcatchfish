@@ -250,7 +250,8 @@
     "node": {
       "__id__": 3
     },
-    "_enabled": true
+    "_enabled": true,
+    "fishPrefab": null
   },
   {
     "__type__": "cc.Node",

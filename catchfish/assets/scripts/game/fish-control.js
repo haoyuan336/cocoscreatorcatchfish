@@ -7,6 +7,10 @@ const AddFishState = {
 cc.Class({
     extends: cc.Component,
     properties: {
+        fishPrefab: {
+            default: null,
+            type: cc.Prefab
+        }
     },
     onLoad: function () {
         this.addRandomFishTime = 0;
@@ -105,8 +109,16 @@ cc.Class({
                 "config": fishConfig,
                 "bezier": newBezier
             };
-            this.getComponent('game-manager').addFishNode(data);
+            // this.getComponent('game-manager').addFishNode(data);
+            this.addFishNode(data);
         }
+    },
+    addFishNode(data){
+        // cc.log('add fish node = ' + JSON.stringify(data));
+        let fishNode = cc.instantiate(this.fishPrefab);
+        fishNode.parent = this.node;
+        fishNode.getComponent('fish').initWithData(data);
+
     },
     setAddFishState: function (state) {
         if (this.stateAddFish === state){
