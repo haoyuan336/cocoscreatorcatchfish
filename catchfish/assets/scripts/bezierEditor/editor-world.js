@@ -42,7 +42,7 @@ cc.Class({
             console.log("touch start");
             for (let i in this.controlPointList){
                let point = this.controlPointList[i];
-                let dis = cc.pDistance(point.position, this.node.parent.convertTouchToNodeSpace(event));
+                let dis = point.position.sub(this.node.parent.convertToNodeSpace(event.getLocation())).mag();
                 if (dis < 10){
                     touchPoint = point;
                 }
@@ -50,12 +50,12 @@ cc.Class({
         });
         this.node.on(cc.Node.EventType.TOUCH_MOVE, (event)=>{
             if (touchPoint){
-                touchPoint.position = this.node.parent.convertTouchToNodeSpace(event);
+                touchPoint.position = this.node.parent.convertToNodeSpace(event.getLocation());
             }
         });
         this.node.on(cc.Node.EventType.TOUCH_END, (event)=>{
             if (touchPoint === undefined){
-                let touchPos = this.node.parent.convertTouchToNodeSpace(event);
+                let touchPos = this.node.parent.convertToNodeSpace(event.getLocation());
                 this.addPoint(touchPos);
             }else {
                 touchPoint = undefined;
@@ -237,7 +237,7 @@ cc.Class({
         console.log(' i = ' + id);
         let node = cc.instantiate(this.scrollViewCellPrefab);
         this.scrollViewContent.addChild(node);
-        node.position = cc.p(0, - this.scrollViewContent.children.length * 40);
+        node.position = cc.v2(0, - this.scrollViewContent.children.length * 40);
         node.getComponent('scroll-view-cell').init({bezierId: id});
         // node.id = id;
         // node.on('click', this.cellClick.bind(this));
@@ -255,7 +255,8 @@ cc.Class({
 
         for (let i = 0 ; i < this.scrollViewContent.children.length ; i ++){
             let cell = this.scrollViewContent.children[i];
-            cell.position = cc.p(0, - (i + 1) * 40)
+            // cell.position = cc.p(0, - (i + 1) * 40)
+            cell.position = cc.v2(0, - (i + 1) * 40);
         }
     },
     // ,
