@@ -92,7 +92,8 @@ cc.Class({
         switch (this.state){
             case FishState.Run:
                 let position = this.bezier.getPoint(this.runTime);
-                let direction = cc.pAngle(cc.p(0,0), cc.pSub(position, this.node.position));
+                // let direction = cc.pAngle(cc.p(0,0), cc.pSub(position, this.node.position));
+                let direction = cc.v2(0, 0).angle(position.sub(this.node.position));
                 cc.log('direction = ' + JSON.stringify(direction));
                 this.node.position = position;
 
